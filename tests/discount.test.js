@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
  
-import { calculatePartnerDiscount } from './discount.js';
+import { calculatePartnerDiscount } from '../src/discount.js';
  
 const boundaryCases = [
   { quantity: 0, expected: 0 },

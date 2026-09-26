@@ -1,20 +1,23 @@
 /* Оформление по руководству по стилю (Screenshot_2):
-   белый фон, тонкие серые рамки, рубленый шрифт, без заливок и теней. */
+   белый фон, чёрный текст Segoe UI, серые рамки #8f8f8f, без заливок и теней.
+   Размеры и отступы сняты с макета. */
 
 :root {
   --color-page: #ffffff;
-  --color-text: #1a1a1a;
-  --color-text-muted: #333333;
-  --color-border: #cfcfcf;
-  --color-border-strong: #9a9a9a;
+  --color-text: #000000;
+  --color-text-muted: #000000;
+  --color-border: #8f8f8f;
+  --color-border-strong: #5c5c5c;
   --color-error: #8a1c1c;
 
-  --font-base: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --font-base: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --size-title: 18px;
   --size-detail: 12px;
+  --line-title: 22px;
+  --line-detail: 15px;
 
   --gap-card: 16px;
-  --pad-card: 14px 20px;
+  --pad-card: 11px 70px 16px 24px;
 }
 
 * {
@@ -52,16 +55,19 @@ body {
 .main {
   max-width: 760px;
   margin: 0 auto;
-  padding: 20px;
-  border: 1px solid var(--color-border-strong);
+  padding: 16px 20px;
+  border: 1px solid var(--color-border);
 }
 
 .toolbar {
+  display: flex;
+  gap: 12px;
   margin-bottom: var(--gap-card);
 }
 
 .toolbar__search {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   padding: 8px 10px;
   font-family: inherit;
   font-size: 13px;
@@ -104,24 +110,100 @@ body {
 }
 
 .card__title {
-  margin: 0 0 6px;
+  margin: 0;
   font-size: var(--size-title);
   font-weight: 400;
-  line-height: 1.25;
+  line-height: var(--line-title);
 }
 
 .card__detail {
   margin: 0;
   font-size: var(--size-detail);
-  line-height: 1.5;
+  line-height: var(--line-detail);
   color: var(--color-text-muted);
 }
 
 .card__discount {
   flex-shrink: 0;
   font-size: var(--size-title);
-  line-height: 1.25;
+  line-height: var(--line-title);
   white-space: nowrap;
+}
+
+a.card {
+  color: inherit;
+  text-decoration: none;
+}
+
+a.card:hover,
+a.card:focus-visible {
+  border-color: var(--color-border-strong);
+  outline: none;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.2;
+  color: var(--color-text);
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--color-page);
+  border: 1px solid var(--color-border-strong);
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus-visible {
+  outline: 2px solid var(--color-border-strong);
+  outline-offset: -1px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form__label {
+  font-size: var(--size-detail);
+  color: var(--color-text-muted);
+}
+
+.form__input {
+  width: 100%;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--color-text);
+  background: var(--color-page);
+  border: 1px solid var(--color-border);
+}
+
+.form__input:focus {
+  outline: 2px solid var(--color-border-strong);
+  outline-offset: -1px;
+}
+
+.form__hint {
+  margin: 0;
+  font-size: var(--size-detail);
+  color: var(--color-text-muted);
+}
+
+.form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 @media (max-width: 520px) {
@@ -136,5 +218,6 @@ body {
   .card {
     flex-direction: column;
     gap: 8px;
+    padding: 11px 16px 16px;
   }
 }

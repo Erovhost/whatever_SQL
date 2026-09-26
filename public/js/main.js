@@ -21,9 +21,20 @@ function buildDetail(text) {
   return element;
 }
 
+// +79991112233 → +7 999 111 22 33, как на макете; прочие форматы выводятся без изменений.
+function formatPhone(phone) {
+  const match = /^\+7(\d{3})(\d{3})(\d{2})(\d{2})$/.exec(phone);
+  if (match === null) {
+    return phone;
+  }
+  return `+7 ${match[1]} ${match[2]} ${match[3]} ${match[4]}`;
+}
+
 function buildCard(partner) {
-  const card = document.createElement('article');
+  // Карточка — ссылка на форму редактирования, ID партнёра передаётся в адресе.
+  const card = document.createElement('a');
   card.className = 'card';
+  card.href = `partner-edit.html?id=${partner.partnerId}`;
 
   const info = document.createElement('div');
 
@@ -34,7 +45,7 @@ function buildCard(partner) {
   info.append(
     title,
     buildDetail(partner.directorName ?? 'Директор не указан'),
-    buildDetail(partner.phone ?? 'Телефон не указан'),
+    buildDetail(partner.phone === null ? 'Телефон не указан' : formatPhone(partner.phone)),
     buildDetail(`Рейтинг: ${partner.rating ?? 'нет оценки'}`),
   );
 
@@ -88,5 +99,12 @@ async function loadPartners() {
 }
 
 searchElement.addEventListener('input', applySearch);
+
+// Браузерная кнопка «Назад» может показать страницу из кэша со старым списком.
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    loadPartners();
+  }
+});
 
 loadPartners();
