@@ -1,0 +1,140 @@
+/* Оформление по руководству по стилю (Screenshot_2):
+   белый фон, тонкие серые рамки, рубленый шрифт, без заливок и теней. */
+
+:root {
+  --color-page: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #333333;
+  --color-border: #cfcfcf;
+  --color-border-strong: #9a9a9a;
+  --color-error: #8a1c1c;
+
+  --font-base: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --size-title: 18px;
+  --size-detail: 12px;
+
+  --gap-card: 16px;
+  --pad-card: 14px 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-base);
+  font-size: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 760px;
+  margin: 0 auto 20px;
+}
+
+.header__logo {
+  width: 44px;
+  height: 44px;
+}
+
+.header__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid var(--color-border-strong);
+}
+
+.toolbar {
+  margin-bottom: var(--gap-card);
+}
+
+.toolbar__search {
+  width: 100%;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--color-text);
+  background: var(--color-page);
+  border: 1px solid var(--color-border);
+}
+
+.toolbar__search:focus {
+  outline: 2px solid var(--color-border-strong);
+  outline-offset: -1px;
+}
+
+.state {
+  margin: 0;
+  padding: 14px 20px;
+  border: 1px solid var(--color-border);
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.state--error {
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+.partners {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-card);
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: var(--pad-card);
+  border: 1px solid var(--color-border);
+}
+
+.card__title {
+  margin: 0 0 6px;
+  font-size: var(--size-title);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.card__detail {
+  margin: 0;
+  font-size: var(--size-detail);
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.card__discount {
+  flex-shrink: 0;
+  font-size: var(--size-title);
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 12px;
+  }
+
+  .main {
+    padding: 12px;
+  }
+
+  .card {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

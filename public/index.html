@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRM: Список партнёров и скидок</title>
+  <link rel="icon" href="resources/anus.ico" sizes="any">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <img class="header__logo" src="resources/logo.png" alt="Логотип компании">
+    <h1 class="header__title">Список партнёров и скидок</h1>
+  </header>
+
+  <main class="main">
+    <div class="toolbar">
+      <input
+        class="toolbar__search"
+        id="search"
+        type="search"
+        placeholder="Поиск по наименованию, ИНН или телефону"
+        aria-label="Поиск партнёров">
+    </div>
+
+    <p class="state" id="state">Загрузка данных...</p>
+
+    <section class="partners" id="partners" aria-live="polite"></section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
