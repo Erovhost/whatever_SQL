@@ -1,3 +1,5 @@
+import { showError } from './dialog.js';
+
 const stateElement = document.getElementById('state');
 const partnersElement = document.getElementById('partners');
 const searchElement = document.getElementById('search');
@@ -82,23 +84,66 @@ function applySearch() {
 async function loadPartners() {
   showState('Загрузка данных...', false);
   partnersElement.replaceChildren();
+  let response;
   try {
-    const response = await fetch('/api/partners');
-    if (!response.ok) {
-      throw new Error(`сервер ответил ${response.status}`);
-    }
-    loadedPartners = await response.json();
-    applySearch();
-  } catch (error) {
-    showState(
-      `Не удалось загрузить данные: ${error.message}. ` +
-        'Проверьте, что сервер запущен и база данных доступна.',
-      true,
+    response = await fetch('/api/partners');
+  } catch {
+    showLoadError(
+      'Сервер приложения не отвечает.\n\n' +
+        'Что сделать:\n' +
+        '1. Убедитесь, что сервер приложения запущен (команда npm start).\n' +
+        '2. Проверьте подключение к сети.\n' +
+        '3. Обновите страницу.',
     );
+    return;
+  }
+  if (response.status === 503) {
+    showLoadError(
+      'База данных недоступна.\n\n' +
+        'Что сделать:\n' +
+        '1. Убедитесь, что сервер базы данных MySQL запущен.\n' +
+        '2. Обновите страницу через несколько секунд.\n' +
+        '3. Если ошибка повторяется, обратитесь к администратору.',
+    );
+    return;
+  }
+  if (!response.ok) {
+    showLoadError(`Сервер ответил с кодом ${response.status}.\n\nОбновите страницу. Если ошибка повторяется, обратитесь к администратору.`);
+    return;
+  }
+  loadedPartners = await response.json();
+  applySearch();
+}
+
+function showLoadError(message) {
+  showState('Не удалось загрузить список партнёров. Обновите страницу.', true);
+  showError('Ошибка загрузки данных', message);
+}
+
+const SEARCH_STORAGE_KEY = 'crm.partnerSearch';
+
+// Поиск хранится в sessionStorage, чтобы пережить переход в карточку и обратно.
+// Если хранилище недоступно (например, запрещено настройками браузера), поиск просто не запоминается.
+function restoreSearch() {
+  try {
+    searchElement.value = sessionStorage.getItem(SEARCH_STORAGE_KEY) ?? '';
+  } catch {
+    searchElement.value = '';
   }
 }
 
-searchElement.addEventListener('input', applySearch);
+function saveSearch() {
+  try {
+    sessionStorage.setItem(SEARCH_STORAGE_KEY, searchElement.value);
+  } catch {
+    return;
+  }
+}
+
+searchElement.addEventListener('input', () => {
+  saveSearch();
+  applySearch();
+});
 
 // Браузерная кнопка «Назад» может показать страницу из кэша со старым списком.
 window.addEventListener('pageshow', (event) => {
@@ -107,4 +152,5 @@ window.addEventListener('pageshow', (event) => {
   }
 });
 
+restoreSearch();
 loadPartners();

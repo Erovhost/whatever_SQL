@@ -192,9 +192,28 @@ async function savePartner(req, res, partnerId) {
       res.status(409).json({ error: message });
       return;
     }
-    console.error(dbError);
-    res.status(500).json({ error: 'internal server error' });
+    sendServerError(res, dbError);
   }
+}
+
+const DB_UNAVAILABLE_CODES = new Set([
+  'ECONNREFUSED',
+  'ETIMEDOUT',
+  'ENOTFOUND',
+  'PROTOCOL_CONNECTION_LOST',
+  'ER_ACCESS_DENIED_ERROR',
+  'ER_BAD_DB_ERROR',
+  'ER_CON_COUNT_ERROR',
+]);
+
+// Недоступность СУБД отдаётся отдельным кодом 503, чтобы интерфейс подсказал, что делать.
+function sendServerError(res, error) {
+  console.error(error);
+  if (DB_UNAVAILABLE_CODES.has(error.code)) {
+    res.status(503).json({ error: 'База данных недоступна.' });
+    return;
+  }
+  res.status(500).json({ error: 'Внутренняя ошибка сервера.' });
 }
 
 const app = express();
@@ -217,8 +236,7 @@ app.get('/api/partner-types', async (req, res) => {
     const partnerTypes = await getPartnerTypes();
     res.json(partnerTypes);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'internal server error' });
+    sendServerError(res, error);
   }
 });
 
@@ -236,8 +254,7 @@ app.get('/api/partners/:id', async (req, res) => {
     }
     res.json(partner);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'internal server error' });
+    sendServerError(res, error);
   }
 });
 
@@ -246,8 +263,7 @@ app.get('/api/partners', async (req, res) => {
     const partners = await getPartnersWithDiscount();
     res.json(partners);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'internal server error' });
+    sendServerError(res, error);
   }
 });
 
