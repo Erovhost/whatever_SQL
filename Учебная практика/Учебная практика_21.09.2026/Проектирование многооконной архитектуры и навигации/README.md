@@ -8,10 +8,10 @@
 
 | Файл | Что в нём |
 | --- | --- |
-| [public/index.html](<../../../public/index.html>) | `MainWindow`: кнопка «Добавить партнёра» |
-| [public/js/main.js](<../../../public/js/main.js>) | Карточка партнёра — ссылка на форму редактирования с передачей ID (`buildCard`); сохранение строки поиска между переходами (`saveSearch`, `restoreSearch`) |
-| [public/partner-edit.html](<../../../public/partner-edit.html>) | `PartnerEditWindow`: кнопка «Назад» |
-| [public/js/partner-edit.js](<../../../public/js/partner-edit.js>) | Получение ID партнёра из адреса, заголовок окна по режиму (`applyMode`), возврат на главную (`goBack`) |
+| [index.html](<index.html>) | `MainWindow`: кнопка «Добавить партнёра» |
+| [main.js](<main.js>) | Карточка партнёра — ссылка на форму редактирования с передачей ID (`buildCard`); сохранение строки поиска между переходами (`saveSearch`, `restoreSearch`) |
+| [partner-edit.html](<partner-edit.html>) | `PartnerEditWindow`: кнопка «Назад» |
+| [partner-edit.js](<partner-edit.js>) | Получение ID партнёра из адреса, заголовок окна по режиму (`applyMode`), возврат на главную (`goBack`) |
 
 ## Навигация
 

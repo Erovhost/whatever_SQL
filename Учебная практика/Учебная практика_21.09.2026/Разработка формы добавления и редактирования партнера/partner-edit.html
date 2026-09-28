@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRM: Карточка партнёра</title>
+  <link rel="icon" href="resources/anus.ico" sizes="any">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <img class="header__logo" src="resources/logo.png" alt="Логотип компании">
+    <h1 class="header__title" id="form-title">Карточка партнёра</h1>
+  </header>
+
+  <main class="main">
+    <p class="state" id="state">Загрузка данных...</p>
+
+    <form class="form" id="partner-form" novalidate hidden>
+      <label class="form__field">
+        <span class="form__label">Наименование *</span>
+        <input
+          class="form__input"
+          name="name"
+          type="text"
+          maxlength="255"
+          required
+          placeholder="Например: Логистик-Экспресс">
+      </label>
+
+      <label class="form__field">
+        <span class="form__label">Тип партнёра *</span>
+        <select class="form__input" name="partnerTypeId" required>
+          <option value="" disabled selected>Выберите тип</option>
+        </select>
+      </label>
+
+      <label class="form__field">
+        <span class="form__label">ИНН *</span>
+        <input
+          class="form__input"
+          name="inn"
+          type="text"
+          inputmode="numeric"
+          maxlength="12"
+          required
+          placeholder="10 или 12 цифр"
+          title="ИНН: 10 цифр для организации или 12 цифр для ИП">
+      </label>
+
+      <label class="form__field">
+        <span class="form__label">Рейтинг</span>
+        <input
+          class="form__input"
+          name="rating"
+          type="number"
+          min="0"
+          max="10"
+          step="0.1"
+          placeholder="От 0 до 10, например 4.8"
+          title="Число от 0 до 10, не более одного знака после точки">
+      </label>
+
+      <label class="form__field">
+        <span class="form__label">Адрес</span>
+        <input
+          class="form__input"
+          name="legalAddress"
+          type="text"
+          maxlength="500"
+          placeholder="Индекс, город, улица, дом"
+          autocomplete="street-address">
+      </label>
+
+      <label class="form__field">
+        <span class="form__label">ФИО директора</span>
+        <input
+          class="form__input"
+          name="directorName"
+          type="text"
+          maxlength="255"
+          placeholder="Иванов Иван Иванович"
+          autocomplete="name">
+      </label>
+
+      <label class="form__field">
+        <span class="form__label">Телефон</span>
+        <input
+          class="form__input"
+          name="phone"
+          type="tel"
+          maxlength="20"
+          placeholder="+79991234567"
+          title="Формат: +7 и 10 цифр без пробелов и скобок"
+          autocomplete="tel">
+      </label>
+
+      <label class="form__field">
+        <span class="form__label">Email компании *</span>
+        <input
+          class="form__input"
+          name="email"
+          type="email"
+          maxlength="255"
+          required
+          placeholder="info@company.ru"
+          title="Адрес электронной почты в формате имя@домен.ru"
+          autocomplete="email">
+      </label>
+
+      <p class="form__hint">* — обязательные поля</p>
+    </form>
+
+    <div class="form__actions">
+      <button class="button" id="back" type="button">Назад</button>
+      <button class="button" id="save" type="submit" form="partner-form" hidden>Сохранить</button>
+    </div>
+  </main>
+
+  <script type="module" src="js/partner-edit.js"></script>
+</body>
+</html>

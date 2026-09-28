@@ -8,7 +8,7 @@
 
 | Файл | Что в нём |
 | --- | --- |
-| [src/server.js](<../../../src/server.js>) | API `POST /api/partners` и `PUT /api/partners/:id` (`savePartner`), проверка существования типа партнёра, перевод ошибок `UNIQUE`/`FK` в понятный текст (`describeConstraintError`), параметризованные запросы |
-| [src/partner.js](<../../../src/partner.js>) | Проверка и нормализация данных формы перед записью в БД (`parsePartnerInput`) |
-| [public/js/partner-edit.js](<../../../public/js/partner-edit.js>) | Отправка формы (`savePartner`, `sendPartner`) и возврат на главную |
-| [public/js/main.js](<../../../public/js/main.js>) | Перезагрузка списка, если браузер показал страницу из кэша (`pageshow`) |
+| [server.js](<server.js>) | API `POST /api/partners` и `PUT /api/partners/:id` (`savePartner`), проверка существования типа партнёра, перевод ошибок `UNIQUE`/`FK` в понятный текст (`describeConstraintError`), параметризованные запросы |
+| [partner.js](<partner.js>) | Проверка и нормализация данных формы перед записью в БД (`parsePartnerInput`) |
+| [partner-edit.js](<partner-edit.js>) | Отправка формы (`savePartner`, `sendPartner`) и возврат на главную |
+| [main.js](<main.js>) | Перезагрузка списка, если браузер показал страницу из кэша (`pageshow`) |

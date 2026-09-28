@@ -8,8 +8,8 @@
 
 | Файл | Что в нём |
 | --- | --- |
-| [db/01_schema.sql](<../../../db/01_schema.sql>) | Схема в 3NF: 6 таблиц (`partner_types`, `partners`, `product_types`, `products`, `deliveries`, `delivery_items`) с ограничениями целостности |
-| [db/partners_db.png](<../../../db/partners_db.png>) | ER-диаграмма |
+| [01_schema.sql](<01_schema.sql>) | Схема в 3NF: 6 таблиц (`partner_types`, `partners`, `product_types`, `products`, `deliveries`, `delivery_items`) с ограничениями целостности |
+| [partners_db.png](<partners_db.png>) | ER-диаграмма |
 
 ## Решения
 

@@ -15,9 +15,9 @@
 
 | Файл | Что в нём |
 | --- | --- |
-| [src/discount.js](<../../../src/discount.js>) | Функция `calculatePartnerDiscount(totalQuantity)` и пороги скидок |
-| [tests/discount.test.js](<../../../tests/discount.test.js>) | Unit-тесты: граничные значения и некорректный ввод |
-| [src/demo.js](<../../../src/demo.js>) | Консольный мини-скрипт с граничными значениями |
+| [discount.js](<discount.js>) | Функция `calculatePartnerDiscount(totalQuantity)` и пороги скидок |
+| [discount.test.js](<discount.test.js>) | Unit-тесты: граничные значения и некорректный ввод |
+| [demo.js](<demo.js>) | Консольный мини-скрипт с граничными значениями |
 
 ## Запуск
 

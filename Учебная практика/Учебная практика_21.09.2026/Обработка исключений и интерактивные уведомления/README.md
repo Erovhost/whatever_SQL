@@ -8,12 +8,12 @@
 
 | Файл | Что в нём |
 | --- | --- |
-| [public/js/dialog.js](<../../../public/js/dialog.js>) | Модальные окна `showError`, `showWarning`, `showInfo`: заголовок, значок (крестик, восклицательный знак, «i»), текст, кнопки |
-| [public/js/partner-edit.js](<../../../public/js/partner-edit.js>) | Проверка полей (`validateForm`) с исключением `ValidationError`, обработка в `try...catch` (`savePartner`), предупреждение при «Назад» (`handleBack`), отслеживание несохранённых изменений |
-| [public/js/main.js](<../../../public/js/main.js>) | Окно ошибки, если сервер или БД недоступны при загрузке списка |
-| [src/server.js](<../../../src/server.js>) | Ответ 503 «База данных недоступна» вместо общей ошибки 500 (`sendServerError`) |
-| [src/partner.js](<../../../src/partner.js>) | Повторная проверка полей на сервере |
-| [public/css/styles.css](<../../../public/css/styles.css>) | Оформление окон (`.dialog`) |
+| [dialog.js](<dialog.js>) | Модальные окна `showError`, `showWarning`, `showInfo`: заголовок, значок (крестик, восклицательный знак, «i»), текст, кнопки |
+| [partner-edit.js](<partner-edit.js>) | Проверка полей (`validateForm`) с исключением `ValidationError`, обработка в `try...catch` (`savePartner`), предупреждение при «Назад» (`handleBack`), отслеживание несохранённых изменений |
+| [main.js](<main.js>) | Окно ошибки, если сервер или БД недоступны при загрузке списка |
+| [server.js](<server.js>) | Ответ 503 «База данных недоступна» вместо общей ошибки 500 (`sendServerError`) |
+| [partner.js](<partner.js>) | Повторная проверка полей на сервере |
+| [styles.css](<styles.css>) | Оформление окон (`.dialog`) |
 
 ## Окна
 

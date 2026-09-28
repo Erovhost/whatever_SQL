@@ -8,10 +8,10 @@
 
 | Файл | Что в нём |
 | --- | --- |
-| [public/partner-edit.html](<../../../public/partner-edit.html>) | Разметка формы, плейсхолдеры и всплывающие подсказки |
-| [public/js/partner-edit.js](<../../../public/js/partner-edit.js>) | Заполнение выпадающего списка из справочника (`loadPartnerTypes`), подстановка данных партнёра (`fillForm`) |
-| [src/server.js](<../../../src/server.js>) | API `GET /api/partner-types` и `GET /api/partners/:id` |
-| [public/css/styles.css](<../../../public/css/styles.css>) | Стили формы (`.form`, `.form__field`, `.form__input`) |
+| [partner-edit.html](<partner-edit.html>) | Разметка формы, плейсхолдеры и всплывающие подсказки |
+| [partner-edit.js](<partner-edit.js>) | Заполнение выпадающего списка из справочника (`loadPartnerTypes`), подстановка данных партнёра (`fillForm`) |
+| [server.js](<server.js>) | API `GET /api/partner-types` и `GET /api/partners/:id` |
+| [styles.css](<styles.css>) | Стили формы (`.form`, `.form__field`, `.form__input`) |
 
 ## Отличия от ТЗ
 

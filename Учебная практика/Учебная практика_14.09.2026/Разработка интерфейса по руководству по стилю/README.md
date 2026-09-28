@@ -8,7 +8,7 @@
 
 | Файл | Что в нём |
 | --- | --- |
-| [public/index.html](<../../../public/index.html>) | Главная форма: заголовок «CRM: Список партнёров и скидок», иконка, логотип, список карточек |
-| [public/css/styles.css](<../../../public/css/styles.css>) | Оформление по макету: шрифт Segoe UI, чёрный текст, серые рамки `#8f8f8f`, отступы карточек |
-| [public/resources/logo.png](<../../../public/resources/logo.png>) | Логотип компании |
-| [public/resources/anus.ico](<../../../public/resources/anus.ico>) | Иконка приложения |
+| [index.html](<index.html>) | Главная форма: заголовок «CRM: Список партнёров и скидок», иконка, логотип, список карточек |
+| [styles.css](<styles.css>) | Оформление по макету: шрифт Segoe UI, чёрный текст, серые рамки `#8f8f8f`, отступы карточек |
+| [logo.png](<logo.png>) | Логотип компании |
+| [anus.ico](<anus.ico>) | Иконка приложения |

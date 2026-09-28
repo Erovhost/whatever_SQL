@@ -8,10 +8,10 @@
 
 | Файл | Что в нём |
 | --- | --- |
-| [db/01_schema.sql](<../../../db/01_schema.sql>) | Создание БД `partners_db`, удаление и создание всех таблиц |
+| [01_schema.sql](<01_schema.sql>) | Создание БД `partners_db`, удаление и создание всех таблиц |
 
 ## Запуск
 
 ```
-mysql -u root -p < db/01_schema.sql
+mysql -u root -p < 01_schema.sql
 ```
